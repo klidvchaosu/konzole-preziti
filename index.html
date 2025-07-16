@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <title>Konzole přežití</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://emoji.slack-edge.com/T024F9DT3/coffee/61c3437cf49799d0.png" type="image/png">
+</head>
+<body>
+
+<div id="splashScreen" class="splash-screen">
+  <h1>✨ Vítej v Konzoli přežití ✨</h1>
+  <p>Dnes to zvládneš. I když to vypadá jako pondělí.</p>
+</div>
+
+<div class="container">
+  <div class="toggle-mode">
+    <!--  <button onclick="toggleMode()">🌗 den/noc</button>  -->
+      <button onclick="toggleApathy()">😑 Kašlu na to mód</button>
+    </div>
+
+    <h1>🧠 Konzole přežití</h1>
+
+    <section>
+    <h2>📅 Citát dne</h2>
+    <div id="dailyQuote" class="message-box"></div>
+    </section>
+
+    <section>
+  <!--
+        <h2>☕ Kávový semafor</h2>
+      <div class="coffee-status">
+        <button onclick="setCoffeeStatus('green')">🟢 Mám kafe</button>
+        <button onclick="setCoffeeStatus('yellow')">🟡 Dochází kafe</button>
+        <button onclick="setCoffeeStatus('red')">🔴 Není kafe</button>
+      </div>
+      <div id="coffeeOutput" class="message-box"></div>
+
+      -->
+
+    <section>
+      <h2>🔥 Dnešní požár</h2>
+      <button onclick="showFire()">Co dnes hoří?</button>
+      <div id="fireOutput" class="message-box"></div>
+    </section>
+
+    <section>
+      <h2>✅ Mikro-úkol dne</h2>
+      <button onclick="showTask()">Zobrazit úkol</button>
+      <div id="taskOutput" class="message-box"></div>
+    </section>
+
+    <section>
+      <h2>💬 Hláška dne</h2>
+      <button onclick="showQuote()">Potřebuju to slyšet</button>
+      <div id="quoteOutput" class="message-box"></div>
+    </section>
+
+    <section>
+      <h2>👑 Legenda dne</h2>
+      <button onclick="showLegend()">Kdo dnes vítězí?</button>
+      <div id="legendOutput" class="message-box"></div>
+    </section>
+
+    <section>
+      <h2>🧘 Zen zóna</h2>
+      <button onclick="showZen()">Uklidni mě</button>
+      <div id="zenOutput" class="message-box"></div>
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
