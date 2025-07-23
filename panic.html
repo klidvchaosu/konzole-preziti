@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <title>Panic mód</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style-2026.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
+</head>
+
+<body class="panic-page">
+
+
+<!-- Obsah panic módu -->
+<div class="spin-wrapper">
+    <div class="page-header">
+        <h1>Panic mód aktivován</h1>
+        <p class="subtitle">Nejsi sám. Všechno hoří. Včetně tohoto HTML.</p>
+    </div>
+
+    <div class="flip-card" data-type="crisis" onclick="handleFlip(this, 'crisis')">
+        <div class="flip-inner">
+            <div class="flip-front">
+                <h2>Klikni pro krizovou hlášku</h2>
+                <p>Nebo taky ne...</p>
+            </div>
+            <div class="flip-back message-box" id="crisisOutput"></div>
+        </div>
+    </div>
+    <a href="index.html" class="fun-button">← Zpět do bezpečné zóny</a>
+</div>
+
+<!-- Patička -->
+<footer style="text-align: center; font-size: 0.75rem; color: #ccc; margin-top: 3rem;">
+    🐾 Vyrobeno ve stavu mírného zoufalství |
+    <span id="authorTag" style="opacity: 0.3; cursor: pointer;">@Kateřina</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
