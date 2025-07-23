@@ -2,75 +2,123 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q57FZHZ95B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Q57FZHZ95B');
+  </script>
+
+  <!-- Meta základ pro SEO -->
+  <meta name="description" content="Interní nástroj pro přežití v kanceláři. Vtipné hlášky, mikro-úkoly a zen zóna pro každý pracovní den.">
+  <meta name="keywords" content="konzole přežití, pracovní humor, zen zóna, kancelářský stres, interní nástroje, vtipné aplikace, týmová nálada">
+  <meta name="author" content="Kateřina - 2026 Edition">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Konzole přežití | V práci s úsměvem">
+  <meta property="og:description" content="Přepni na boss mód – zen, panika i úkoly s dávkou nadsázky.">
+  <meta property="og:image" content="https://klidvchaosu.github.io/konzole-preziti/preview.jpg">
+  <meta property="og:url" content="https://klidvchaosu.github.io/konzole-preziti/">
+  <meta name="twitter:card" content="summary_large_image">
+
+
   <title>Konzole přežití</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style-2026.css">
   <link rel="icon" href="https://emoji.slack-edge.com/T024F9DT3/coffee/61c3437cf49799d0.png" type="image/png">
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
 
+<!-- Úvodní obrazovka -->
 <div id="splashScreen" class="splash-screen">
   <h1>✨ Vítej v Konzoli přežití ✨</h1>
   <p>Dnes to zvládneš. I když to vypadá jako pondělí.</p>
+  <h2>ZBYTEČNÝ FAKT PRO DNEŠNÍ DEN JE:</h2>
+  <div id="uselessFact" class="useless-fact-box"></div>
 </div>
 
-<div class="container">
-  <div class="toggle-mode">
-    <!--  <button onclick="toggleMode()">🌗 den/noc</button>  -->
-      <button onclick="toggleApathy()">😑 Kašlu na to mód</button>
+<!-- Horní ovládání -->
+<header class="app-header">
+  <div class="nav-left">
+    <a href="panic.html" class="action-button">Panický mód</a>
+<!--    <a href="spin.html" class="action-button">Toč a trp</a>-->
+  </div>
+  <div class="nav-right">
+    <button onclick="toggleApathy()" class="action-button">Aktivovat apatii</button>
+  </div>
+</header>
+
+
+  <h1>Konzole přežití</h1>
+
+  <!-- Hlavní grid boxíky -->
+  <div class="grid-layout">
+
+    <div class="flip-card" onclick="handleFlip(this, 'quote')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h2>Citát dne</h2>
+          <p>Klikni pro povzbuzení</p>
+        </div>
+        <div class="flip-back message-box" id="quoteOutput"></div>
+      </div>
     </div>
 
-    <h1>🧠 Konzole přežití</h1>
-
-    <section>
-    <h2>📅 Citát dne</h2>
-    <div id="dailyQuote" class="message-box"></div>
-    </section>
-
-    <section>
-  <!--
-        <h2>☕ Kávový semafor</h2>
-      <div class="coffee-status">
-        <button onclick="setCoffeeStatus('green')">🟢 Mám kafe</button>
-        <button onclick="setCoffeeStatus('yellow')">🟡 Dochází kafe</button>
-        <button onclick="setCoffeeStatus('red')">🔴 Není kafe a energie</button>
+    <div class="flip-card" onclick="handleFlip(this, 'fire')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h2>Dnešní požár</h2>
+          <p>Klikni pro zjištění co hoří</p>
+        </div>
+        <div class="flip-back message-box" id="fireOutput"></div>
       </div>
-      <div id="coffeeOutput" class="message-box"></div>
+    </div>
 
-      -->
+    <div class="flip-card" onclick="handleFlip(this, 'task')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h2>Mikro-úkol</h2>
+          <p>Klikni a něco splň</p>
+        </div>
+        <div class="flip-back message-box" id="taskOutput"></div>
+      </div>
+    </div>
 
-    <section>
-      <h2>🔥 Dnešní požár</h2>
-      <button onclick="showFire()">Co dnes hoří?</button>
-      <div id="fireOutput" class="message-box"></div>
-    </section>
+    <div class="flip-card" onclick="handleFlip(this, 'legend')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h2>Legenda dne</h2>
+          <p>Klikni pro obdiv</p>
+        </div>
+        <div class="flip-back message-box" id="legendOutput"></div>
+      </div>
+    </div>
 
-    <section>
-      <h2>✅ Mikro-úkol dne</h2>
-      <button onclick="showTask()">Zobrazit úkol</button>
-      <div id="taskOutput" class="message-box"></div>
-    </section>
+    <div class="flip-card" onclick="handleFlip(this, 'zen')">
+      <div class="flip-inner">
+        <div class="flip-front">
+          <h2>Zen zóna</h2>
+          <p>Klikni a zklidni mysl</p>
+        </div>
+        <div class="flip-back message-box" id="zenOutput"></div>
+      </div>
+    </div>
 
-    <section>
-      <h2>💬 Hláška dne</h2>
-      <button onclick="showQuote()">Potřebuju to slyšet</button>
-      <div id="quoteOutput" class="message-box"></div>
-    </section>
+  </div>
 
-    <section>
-      <h2>👑 Legenda dne</h2>
-      <button onclick="showLegend()">Kdo dnes vítězí?</button>
-      <div id="legendOutput" class="message-box"></div>
-    </section>
+  <!-- Paticka -->
+<footer style="text-align: center; font-size: 0.75rem; color: #ccc; margin-top: 3rem;">
+  🐾 Vyrobeno ve stavu mírného zoufalství |
+  <span id="authorTag" style="opacity: 0.3; cursor: pointer;">@Kateřina</span>
+</footer>
 
-    <section>
-      <h2>🧘 Zen zóna</h2>
-      <button onclick="showZen()">Uklidni mě</button>
-      <div id="zenOutput" class="message-box"></div>
-    </section>
 
 </div>
 
 <script src="script.js"></script>
-  <!-- druhý pokus o deploy -->
+
 </body>
 </html>
