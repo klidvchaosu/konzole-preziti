@@ -1,139 +1,141 @@
+/* =============== GLOBAL =============== */
+
 :root {
-    --primary-color: #e30613;
-    --dark-bg: #1d1d1b;
-    --light-bg: #ffffff;
-    --text-color: #1d1d1b;
-    --button-hover: #a8000f;
+    --bg-light: #f7f7f9;
+    --bg-dark: #1e1f26;
+    --text-light: #1d1d1d;
+    --text-dark: #eaeaea;
+    --primary: #00c4cc;
+    --primary-hover: #009ba1;
+    --secondary: #ffaa66;
+    --accent: #9b6cfb;
+    --white: #ffffff;
+    --card-shadow: rgba(0, 0, 0, 0.05);
+    --radius: 16px;
+    --font-main: 'Poppins', 'Segoe UI', sans-serif;
 }
 
+/* Reset & základ */
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background: var(--light-bg);
-    color: var(--text-color);
-    padding: 20px;
-    transition: background 0.4s, color 0.4s;
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    margin: 0;
+    padding: 2rem;
+    transition: background 0.4s ease, color 0.4s ease;
+    line-height: 1.6;
 }
 
+/* Noční režim */
 body.dark {
-    background: var(--dark-bg);
-    color: #f4f4f4;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
 }
 
-.container {
-    max-width: 600px;
-    margin: auto;
-    background: var(--light-bg);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    transition: background 0.4s;
-}
+/* =============== HLAVIČKA & SEKCÍ =============== */
 
-body.dark .container {
-    background: #2a2a2a;
-}
-
-h1 {
+h1, h2, h3 {
+    color: var(--accent);
+    margin-top: 0;
     text-align: center;
-    margin-bottom: 30px;
-    color: var(--primary-color);
 }
 
-button {
-    margin: 5px;
-    padding: 10px 20px;
-    font-size: 1em;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: var(--primary-color);
+section {
+    background: var(--white);
+    padding: 2rem;
+    margin: 2rem auto;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px var(--card-shadow);
+    max-width: 800px;
+}
+
+body.dark section {
+    background: #2a2b36;
+}
+
+/* =============== TLAČÍTKA =============== */
+
+button, .fun-button {
+    background-color: var(--primary);
     color: white;
-    transition: transform 0.2s, background 0.3s;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0.5rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-button:hover {
-    background-color: var(--button-hover);
-    transform: scale(1.05);
+button:hover, .fun-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
 }
 
-p {
-    margin-top: 10px;
-    font-style: italic;
-    color: inherit;
+/* Sekundární varianta */
+.fun-button.secondary {
+    background-color: var(--secondary);
 }
 
-.toggle-mode {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-bottom: 20px;
-    padding: 10px 0;
-    background-color: #f8f8f8;
-    border-radius: 10px;
+.fun-button.secondary:hover {
+    background-color: #e69340;
 }
 
-body.dark .toggle-mode {
-    background-color: #2a2a2a;
-}
-
-.toggle-mode button {
-    background-color: #dddddd;
-    color: #333;
-    font-size: 0.9em;
-}
-
-.toggle-mode button:hover {
-    background-color: #ccc;
-    color: black;
-}
-
-
-
-/*=== MESSAGE BOXY ===*/
+/* =============== BOXY =============== */
 
 .message-box {
-    margin-top: 10px;
-    padding: 15px 20px;
-    background-color: #fff1f1;
-    border-left: 6px solid var(--primary-color);
-    border-radius: 8px;
-    font-style: normal;
-    font-size: 1.1em;
-    animation: fadeIn 0.5s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
+    background-color: #ffffff;
+    border-left: 5px solid var(--accent);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 body.dark .message-box {
-    background-color: #2d2d2d;
-    border-left-color: #ff4444;
+    background-color: #2e2f3d;
+    border-left-color: var(--secondary);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(5px); }
-    to { opacity: 1; transform: translateY(0); }
+/* =============== PŘEPÍNAČE & UX BONUSY =============== */
+
+.toggle-mode {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
-.message-box:empty {
-    display: none;
+.toggle-mode button {
+    background-color: var(--accent);
 }
+
+.toggle-mode button:hover {
+    background-color: #8c5ce3;
+}
+
+/* =============== SPLASH SCREEN =============== */
 
 .splash-screen {
     position: fixed;
     inset: 0;
-    background-color: var(--light-bg);
-    color: var(--text-color);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    z-index: 999;
-    animation: fadeOut 3s ease 3.5s forwards;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeOut 4s ease 5s forwards;
+    text-align: center;
 }
 
 body.dark .splash-screen {
-    background-color: var(--dark-bg);
-    color: #f4f4f4;
+    background: rgba(30, 31, 38, 0.9);
 }
 
 @keyframes fadeOut {
@@ -143,50 +145,686 @@ body.dark .splash-screen {
     }
 }
 
-/* Apatie mód – stylový, čitelný, temný ale s lidskou tváří */
+/* =============== OSTATNÍ DROBNOSTI =============== */
 
-body.apathy {
-    filter: grayscale(0.8);
-    letter-spacing: 0.3px;
-    background-color: #1b1b1b;
-    color: #e0e0e0;
-}
-
-body.apathy .message-box {
-    background-color: #2d2d2d;
-    border-left-color: #d13f3f;
-    color: #f1f1f1;
-}
-
-body.apathy .container {
-    background-color: #252525;
-    box-shadow: none;
-}
-
-body.apathy button {
-    background-color: #3b3b3b;
-    color: #ddd;
-    border: 1px solid #555;
-}
-
-body.apathy button:hover {
-    background-color: #2a2a2a;
-    color: #fff;
-    transform: none;
-}
-
-body.apathy h1,
-body.apathy h2 {
-    color: #ff6666;
-    font-style: italic;
+a {
+    color: var(--primary);
+    text-decoration: none;
     font-weight: bold;
-    text-transform: none;
 }
 
-.toggle-mode button.apathy-on {
-    background-color: #8b0000;
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsivní max-width sekce */
+@media (max-width: 768px) {
+    section {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+/* === GRID rozvržení hlavních sekcí === */
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.dark .card {
+    background-color: #2c2c2c;
+}
+
+.card button {
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+}
+
+/*Klikací zóna na boxy*/
+.flip-card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.flip-front {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.flip-back {
+    background-color: #eef6ff;
+    transform: rotateY(180deg);
+}
+
+/* === FLIP KARTIČKY === */
+
+.flip-card {
+    background-color: transparent;
+    width: 100%;
+    min-height: 180px;
+    perspective: 1000px;
+    margin-bottom: 2rem;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    background-color: #ffffff;
+}
+
+body.dark .flip-front,
+body.dark .flip-back {
+    background-color: #2d2d2d;
+    color: #f4f4f4;
+}
+
+.flip-front h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    font-size: 1rem;
+    font-style: italic;
+    background-color: #eef3ff;
+    border-left: 5px solid #4466cc;
+    color: #222;
+}
+
+/* Plynulé zobrazení výsledku */
+.fade {
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* === HLAVIČKA / NAVIGACE === */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    background-color: #f3f3f3;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+body.dark .app-header {
+    background-color: #2a2a2a;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Zmenšené tlačítko pro nav */
+.fun-button.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 20px;
+}
+
+/* Základní styl pro flip box */
+.flip-card {
+    width: 100%;
+    min-height: 180px;
+    perspective: 1000px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    text-align: center;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+    background-color: white;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+}
+
+/* Layout grid */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/*Hlavička - navigace*/
+.action-button {
+    padding: 0.7rem 1.4rem;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: white;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 18px rgba(0, 114, 255, 0.2);
+    transition: all 0.25s ease;
+}
+
+.action-button:hover {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(0, 114, 255, 0.3);
+}
+
+/*Popisek - boxík*/
+.flip-front p {
+    font-size: 0.9rem;
+    color: #777;
+    font-style: italic;
+    margin-top: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.flip-card:hover .flip-front p {
+    opacity: 1;
+}
+
+/*Patička update*/
+.app-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+    font-size: 0.8rem;
+    color: #999;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.app-footer:hover {
+    opacity: 0.9;
+}
+
+.app-footer .footnote {
+    font-style: italic;
+    margin-right: 0.5rem;
+}
+
+.app-footer .signature {
+    font-weight: normal;
+    opacity: 0.4;
+    font-size: 0.75rem;
+    transition: opacity 0.3s ease;
+}
+
+.app-footer:hover .signature {
+    opacity: 0.8;
+}
+
+/*Easter egg*/
+.easter-egg-popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.easter-egg-popup .popup-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.easter-egg-popup .form-button {
+    display: inline-block;
+    background-color: #5c7cfa;
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.easter-egg-popup .form-button:hover {
+    background-color: #3b5bdb;
+    transform: scale(1.05);
+}
+
+.easter-egg {
+    color: #bbb;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.easter-egg:hover {
+    color: #ff66cc;
+    text-decoration: underline;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 3rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.footer-note:hover {
+    opacity: 1;
+}
+
+.author-link {
+    color: inherit;
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.3;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.author-link:hover {
+    opacity: 0.9;
+    color: #7e5bef; /* nebo jiná jemná pastelka */
+    text-decoration: underline;
+}
+
+.easter-egg-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* tmavý overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    font-family: 'Inter', sans-serif;
+}
+
+.popup-content h2 {
+    color: #7e5bef;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.popup-content p {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.popup-content a.form-button {
+    display: inline-block;
+    background: linear-gradient(to right, #7e5bef, #8e63f3);
+    color: white;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(126, 91, 239, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.popup-content a.form-button:hover {
+    transform: scale(1.05);
+}
+
+.popup-content button {
+    margin-top: 1rem;
+    padding: 0.5rem 1.25rem;
+    background-color: #00c2a8;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-content button:hover {
+    background-color: #00a995;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* === Panic stránka === */
+body.panic-page {
+    background: #fff5f5;
+    color: #5c0000;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+/* Nadpis a podnadpis */
+.panic-page .page-header h1 {
+    font-size: 2.2rem;
+    color: #d40000;
+    margin-bottom: 0.5rem;
+}
+
+.panic-page .page-header .subtitle {
+    font-style: italic;
+    font-size: 1rem;
+    color: #7a0000;
+    margin-bottom: 1.5rem;
+}
+
+/* Panic tlačítko */
+.spin-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #d40000;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+}
+
+.spin-button:hover {
+    background-color: #a10000;
+    transform: scale(1.05);
+}
+
+/* Výstup krizové hlášky */
+#panicOutput.message-box {
+    background-color: #ffeaea;
+    border-left: 5px solid #ff4d4d;
+    color: #660000;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wrapper layout */
+.spin-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background-color: #fff9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Tlačítko zpět */
+.back-button.green {
+    background-color: #33aa66;
+    color: #fff;
+    border-radius: 15px;
+    padding: 0.7rem 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button.green:hover {
+    background-color: #228844;
+    transform: scale(1.05);
+}
+
+
+/* === Panic mód - přívětivější styl === */
+body.panic-page {
+    background: #fff9f9;
+    color: #4d0000;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.panic-page .page-header h1 {
+    font-size: 2.2rem;
+    color: #c62828;
+    margin-bottom: 0.3rem;
+}
+
+.panic-page .page-header .subtitle {
+    font-style: italic;
+    font-size: 1rem;
+    color: #6b1a1a;
+    margin-bottom: 1.5rem;
+    opacity: 0.85;
+}
+
+/* Vylepšený wrapper */
+.spin-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background-color: #fff3f3;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Jemný message box */
+#panicOutput.message-box {
+    background-color: #ffeaea;
+    border-left: 5px solid #ff9999;
+    color: #4d0000;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Panic tlačítko */
+.spin-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    background-color: #e57373;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.spin-button:hover {
+    background-color: #d32f2f;
+    transform: scale(1.05);
+}
+
+/* Zpět tlačítko */
+.back-button.green {
+    background-color: #66bb6a;
+    color: #fff;
+    border-radius: 15px;
+    padding: 0.7rem 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-button.green:hover {
+    background-color: #388e3c;
+    transform: scale(1.05);
+}
+
+.back-button.green:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #00c6ff, #0072ff);
     color: #fff;
 }
 
+
+/*PANIC mod - blikající*/
+/* Efekt blesku při otočení – jen pro krizový box */
+.flip-card.flipped[data-type="crisis"] .flip-back {
+    animation: flashHighlight 0.6s ease;
+}
+
+@keyframes flashHighlight {
+    0% {
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.6);
+        background-color: #ffeaea;
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+        background-color: #fff2f2;
+    }
+    100% {
+        box-shadow: 0 0 0px rgba(255, 0, 0, 0.0);
+        background-color: #fefefe;
+    }
+}
+
+.fun-button {
+        border-radius: 14px;
+}
+
+/*Zatřepej se*/
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    15% { transform: translate(-6px, 2px) rotate(-2deg); }
+    30% { transform: translate(6px, -3px) rotate(2deg); }
+    45% { transform: translate(-6px, 3px) rotate(-1deg); }
+    60% { transform: translate(6px, -2px) rotate(2deg); }
+    75% { transform: translate(-5px, 2px) rotate(-2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.shake {
+    animation: shake 0.5s ease;
+}
 
 
