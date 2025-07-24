@@ -855,3 +855,38 @@ body.panic-page {
         transform: translate(-50%, 0);
     }
 }
+
+body.apathy {
+  background-color: #1e1e1e;
+  color: #ccc;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Upravíme i hlavičky, tlačítka a boxy, ať to ladí */
+body.apathy h1,
+body.apathy h2,
+body.apathy h3 {
+  color: #ddd;
+}
+
+body.apathy .fun-button {
+  background-color: #444;
+  color: #eee;
+  border-color: #666;
+}
+
+body.apathy .fun-button:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+body.apathy .flip-front,
+body.apathy .flip-back {
+  background-color: #2c2c2c;
+  color: #ddd;
+}
+
+body.apathy .message-box {
+  background-color: #2f2f2f;
+  color: #ddd;
+}
