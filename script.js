@@ -255,4 +255,21 @@ function showCrisis() {
     }, 500);
 }
 
+// Apatie mód
+
+function toggleApathy() {
+    apathyMode = !apathyMode;
+    document.body.classList.toggle('apathy');
+
+    // Vytvoření krátké zprávy pro potvrzení módu
+    const msg = document.createElement('div');
+    msg.className = 'apathy-toast';
+    msg.textContent = apathyMode
+        ? '😐 Apatie aktivována... Všechno je zbytečné.'
+        : '🟢 Zpátky do boje! Apatie zrušena.';
+
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 3000);
+}
+
 
