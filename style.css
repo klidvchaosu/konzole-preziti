@@ -828,3 +828,30 @@ body.panic-page {
 }
 
 
+/*Apatie mód  */
+.apathy-toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #eee;
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    z-index: 9999;
+    font-size: 0.9rem;
+    opacity: 0.95;
+    animation: fadeInUp 0.3s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 2rem);
+    }
+    to {
+        opacity: 0.95;
+        transform: translate(-50%, 0);
+    }
+}
